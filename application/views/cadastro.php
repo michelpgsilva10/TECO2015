@@ -9,7 +9,7 @@
 		<meta name="description" content="">
 		<meta name="author" content="">
 
-		<title>Freelancer - Start Bootstrap Theme</title>
+		<title>Teco2015</title>
 
 		<!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
 		<link href="<?php echo $this->config->item('base_url') ?>/css-sistema/css/bootstrap.min.css" rel="stylesheet">
@@ -80,6 +80,12 @@
 				</div>
 			</div>
 			<div class="row">
+				<?php
+			        if (isset($mensagem)) {
+			            echo $mensagem;
+			        }
+			        echo (validation_errors('<div class="alert alert-danger"><button type="button" class="close" data-dismiss="alert">×</button>', '</div>'));
+			     ?>
 				<form class="form-horizontal" role="form" method="post" accept-charset="utf-8" action="<?php echo site_url("cadastro/novo"); ?>">
 					<div class="col-md-12" style="margin-left: 40px;">
 						<div class="col-md-6">
@@ -98,8 +104,8 @@
 								<label for="inputPassword3" class="col-sm-3 control-label">CPF:</label>
 								<div class="col-sm-6">
 									<input type="text" class="form-control" name="cpf" <?php
-									if (isset($cpf)) {
-										echo("value='" . $cpf . "'");
+									if (isset($CPF)) {
+										echo("value='" . $CPF . "'");
 									}
 									?>>
 								</div>
@@ -108,8 +114,8 @@
 								<label for="inputPassword3" class="col-sm-3 control-label">RG:</label>
 								<div class="col-sm-6">
 									<input type="text" class="form-control" name="rg" <?php
-									if (isset($rg)) {
-										echo("value='" . $rg . "'");
+									if (isset($RG)) {
+										echo("value='" . $RG . "'");
 									}
 									?>>
 								</div>
@@ -118,8 +124,8 @@
 								<label for="inputPassword3" class="col-sm-3 control-label">Orgao Expedidor:</label>
 								<div class="col-sm-6">
 									<input type="text" class="form-control" name="orgao_expeditor" <?php
-									if (isset($nacionalidade)) {
-										echo("value='" . $nacionalidade . "'");
+									if (isset($orgao_expeditor)) {
+										echo("value='" . $orgao_expeditor . "'");
 									}
 									?>>
 								</div>
@@ -128,8 +134,8 @@
 								<label for="inputPassword3" class="col-sm-3 control-label">R.G.A:</label>
 								<div class="col-sm-6">
 									<input type="text" class="form-control" name="rga" <?php
-									if (isset($cidade_nasc)) {
-										echo("value='" . $cidade_nasc . "'");
+									if (isset($rga)) {
+										echo("value='" . $rga . "'");
 									}
 									?>>
 								</div>
@@ -138,8 +144,8 @@
 								<label for="inputPassword3" class="col-sm-3 control-label">Data de Nascimento:</label>
 								<div class="col-sm-6">
 									<input type="text" class="form-control" name="dta_nasc" <?php
-									if (isset($dta_nascimento)) {
-										echo("value='" . $dta_nascimento . "'");
+									if (isset($data_nascimento)) {
+										echo("value='" . $data_nascimento . "'");
 									}
 									?>>
 								</div>
@@ -163,13 +169,13 @@
 									}
 									?>>
 								</div>
-							</div>
-							<div class="form-group" >
-								<label for="inputPassword3" class="col-sm-3 control-label">Email:</label>
+							</div>							
+							<div class="form-group">
+								<label for="inputPassword3" class="col-sm-3 control-label">Telefone Celular:</label>
 								<div class="col-sm-6">
-									<input type="text" class="form-control" name="email" <?php
-									if (isset($email)) {
-										echo("value='" . $email . "'");
+									<input type="text" class="form-control" name="telefone_alt" <?php
+									if (isset($tel_celular)) {
+										echo("value='" . $tel_celular . "'");
 									}
 									?>>
 								</div>
@@ -178,8 +184,8 @@
 								<label for="inputPassword3" class="col-sm-3 control-label">Telefone Residencial:</label>
 								<div class="col-sm-6">
 									<input type="text" class="form-control" name="telefone" <?php
-									if (isset($telefone)) {
-										echo("value='" . $telefone . "'");
+									if (isset($tel_residencial)) {
+										echo("value='" . $tel_residencial . "'");
 									}
 									?>>
 								</div>
@@ -192,8 +198,8 @@
 								<label for="inputPassword3" class="col-sm-3 control-label">Cidade:</label>
 								<div class="col-sm-6">
 									<input type="text" class="form-control" name="cidade" <?php
-									if (isset($cidade)) {
-										echo("value='" . $cidade . "'");
+									if (isset($endereco_cidade)) {
+										echo("value='" . $endereco_cidade . "'");
 									}
 									?>>
 								</div>
@@ -203,137 +209,137 @@
 								<div class="col-sm-6">
 									<select class="form-control" name="estado" >
 										<option value="AC" <?php
-										if (isset($estado) and $estado == "AC") {
+										if (isset($endereco_uf) and $endereco_uf == "AC") {
 											echo("selected");
 										}
 										?>>Acre</option>
 										<option value="AL" <?php
-										if (isset($estado) and $estado == "AL") {
+										if (isset($endereco_uf) and $endereco_uf == "AL") {
 											echo("selected");
 										}
 										?>>Alagoas</option>
 										<option value="AP"<?php
-										if (isset($estado) and $estado == "AP") {
+										if (isset($endereco_uf) and $endereco_uf == "AP") {
 											echo("selected");
 										}
 										?>>Amapá</option>
 										<option value="AM" <?php
-										if (isset($estado) and $estado == "AM") {
+										if (isset($endereco_uf) and $endereco_uf == "AM") {
 											echo("selected");
 										}
 										?>>Amazonas</option>
 										<option value="BA" <?php
-										if (isset($estado) and $estado == "BA") {
+										if (isset($endereco_uf) and $endereco_uf == "BA") {
 											echo("selected");
 										}
 										?>>Bahia</option>
 										<option value="CE" <?php
-										if (isset($estado) and $estado == "CE") {
+										if (isset($endereco_uf) and $endereco_uf == "CE") {
 											echo("selected");
 										}
 										?>>Ceará</option>
 										<option value="DF"<?php
-										if (isset($estado) and $estado == "DF") {
+										if (isset($endereco_uf) and $endereco_uf == "DF") {
 											echo("selected");
 										}
 										?>>Distrito Federal</option>
 										<option value="ES" <?php
-										if (isset($estado) and $estado == "ES") {
+										if (isset($endereco_uf) and $endereco_uf == "ES") {
 											echo("selected");
 										}
 										?>>Espírito Santo</option>
 										<option value="GO" <?php
-										if (isset($estado) and $estado == "GO") {
+										if (isset($endereco_uf) and $endereco_uf == "GO") {
 											echo("selected");
 										}
 										?>>Goiás</option>
 										<option value="MA" <?php
-										if (isset($estado) and $estado == "MA") {
+										if (isset($endereco_uf) and $endereco_uf == "MA") {
 											echo("selected");
 										}
 										?>>Maranhão</option>
 										<option value="MT" <?php
-										if (isset($estado) and $estado == "MT") {
+										if (isset($endereco_uf) and $endereco_uf == "MT") {
 											echo("selected");
 										}
 										?>>Mato Grosso</option>
 										<option value="MS" <?php
-										if (isset($estado) and $estado == "MS") {
+										if (isset($endereco_uf) and $endereco_uf == "MS") {
 											echo("selected");
 										}
 										?>>Mato Grosso do Sul</option>
 										<option value="MG" <?php
-										if (isset($estado) and $estado == "MG") {
+										if (isset($endereco_uf) and $endereco_uf == "MG") {
 											echo("selected");
 										}
 										?>>Minas Gerais</option>
 										<option value="PA" <?php
-										if (isset($estado) and $estado == "PA") {
+										if (isset($endereco_uf) and $endereco_uf == "PA") {
 											echo("selected");
 										}
 										?>>Pará</option>
 										<option value="PB" <?php
-										if (isset($estado) and $estado == "PB") {
+										if (isset($endereco_uf) and $endereco_uf == "PB") {
 											echo("selected");
 										}
 										?>>Paraíba</option>
 										<option value="PR" <?php
-										if (isset($estado) and $estado == "PR") {
+										if (isset($endereco_uf) and $endereco_uf == "PR") {
 											echo("selected");
 										}
 										?>>Paraná</option>
 										<option value="PE" <?php
-										if (isset($estado) and $estado == "PE") {
+										if (isset($endereco_uf) and $endereco_uf == "PE") {
 											echo("selected");
 										}
 										?>>Pernambuco</option>
 										<option value="PI" <?php
-										if (isset($estado) and $estado == "PI") {
+										if (isset($endereco_uf) and $endereco_uf == "PI") {
 											echo("selected");
 										}
 										?>>Piauí</option>
 										<option value="RJ" <?php
-										if (isset($estado) and $estado == "RJ") {
+										if (isset($endereco_uf) and $endereco_uf == "RJ") {
 											echo("selected");
 										}
 										?>>Rio de Janeiro</option>
 										<option value="RS" <?php
-										if (isset($estado) and $estado == "RS") {
+										if (isset($endereco_uf) and $endereco_uf == "RS") {
 											echo("selected");
 										}
 										?>>Rio Grande do Sul</option>
 										<option value="RN" <?php
-										if (isset($estado) and $estado == "RN") {
+										if (isset($endereco_uf) and $endereco_uf == "RN") {
 											echo("selected");
 										}
 										?>>Rio Grando do Norte</option>
 										<option value="RO" <?php
-										if (isset($estado) and $estado == "RO") {
+										if (isset($endereco_uf) and $endereco_uf == "RO") {
 											echo("selected");
 										}
 										?>>Rondônia</option>
 										<option value="RR" <?php
-										if (isset($estado) and $estado == "RR") {
+										if (isset($endereco_uf) and $endereco_uf == "RR") {
 											echo("selected");
 										}
 										?>>Roraima</option>
 										<option value="SC" <?php
-										if (isset($estado) and $estado == "SC") {
+										if (isset($endereco_uf) and $endereco_uf == "SC") {
 											echo("selected");
 										}
 										?>>Santa Catarina</option>
 										<option value="SP" <?php
-										if (isset($estado) and $estado == "SP") {
+										if (isset($endereco_uf) and $endereco_uf == "SP") {
 											echo("selected");
 										}
 										?>>São Paulo</option>
 										<option value="SE" <?php
-										if (isset($estado) and $estado == "SE") {
+										if (isset($endereco_uf) and $endereco_uf == "SE") {
 											echo("selected");
 										}
 										?>>Sergipe</option>
 										<option value="TO" <?php
-										if (isset($estado) and $estado == "TO") {
+										if (isset($endereco_uf) and $endereco_uf == "TO") {
 											echo("selected");
 										}
 										?>>Tocantins</option>
@@ -345,18 +351,18 @@
 								<label for="inputPassword3" class="col-sm-3 control-label">Rua:</label>
 								<div class="col-sm-6">
 									<input type="text" class="form-control" name="rua" <?php
-									if (isset($rua)) {
-										echo("value='" . $rua . "'");
+									if (isset($endereco_rua)) {
+										echo("value='" . $endereco_rua . "'");
 									}
 									?>>
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="inputPassword3" class="col-sm-3 control-label">Complemento: </label>
+								<label for="inputPassword3" class="col-sm-3 control-label">Apartamento: </label>
 								<div class="col-sm-6">
 									<input type="text" class="form-control" name="complemento" <?php
-									if (isset($complemento)) {
-										echo("value='" . $complemento . "'");
+									if (isset($endereco_apto)) {
+										echo("value='" . $endereco_apto . "'");
 									}
 									?>>
 								</div>
@@ -365,8 +371,8 @@
 								<label for="inputPassword3" class="col-sm-3 control-label">Número:</label>
 								<div class="col-sm-6">
 									<input type="text" class="form-control" name="num" <?php
-									if (isset($num)) {
-										echo("value='" . $num . "'");
+									if (isset($endereco_numero)) {
+										echo("value='" . $endereco_numero . "'");
 									}
 									?>>
 								</div>
@@ -375,8 +381,8 @@
 								<label for="inputPassword3" class="col-sm-3 control-label">Bairro:</label>
 								<div class="col-sm-6">
 									<input type="text" class="form-control" name="bairro" <?php
-									if (isset($bairro)) {
-										echo("value='" . $bairro . "'");
+									if (isset($endereco_bairro)) {
+										echo("value='" . $endereco_bairro . "'");
 									}
 									?>>
 								</div>
@@ -385,8 +391,18 @@
 								<label for="inputPassword3" class="col-sm-3 control-label">CEP:</label>
 								<div class="col-sm-6">
 									<input type="text" class="form-control" name="cep" <?php
-									if (isset($cep)) {
-										echo("value='" . $cep . "'");
+									if (isset($endereco_cep)) {
+										echo("value='" . $endereco_cep . "'");
+									}
+									?>>
+								</div>
+							</div>
+							<div class="form-group" >
+								<label for="inputPassword3" class="col-sm-3 control-label">Email:</label>
+								<div class="col-sm-6">
+									<input type="text" class="form-control" name="email" <?php
+									if (isset($email)) {
+										echo("value='" . $email . "'");
 									}
 									?>>
 								</div>
@@ -403,20 +419,20 @@
 									<input type="password" class="form-control" name="senha_confirma">
 								</div>
 							</div>
-							<div class="form-group">
-								<label for="inputPassword3" class="col-sm-3 control-label">Telefone Celular:</label>
-								<div class="col-sm-6">
-									<input type="text" class="form-control" name="telefone_alt" <?php
-									if (isset($telefone_alt)) {
-										echo("value='" . $telefone_alt . "'");
-									}
-									?>>
-								</div>
-							</div>
 						</div>
 						<br />
 						<!-- Pagamento -->
 						<div class="col-md-12" style="margin-left: 100px;">
+							<div class="form-group">
+								<label for="inputPassword3" class="col-sm-2 control-label">Apelido:</label>
+								<div class="col-sm-6">
+									<input type="text" class="form-control" name="apelido" <?php
+									if (isset($apelido)) {
+										echo("value='" . $apelido . "'");
+									}
+									?>>
+								</div>
+							</div>
 							<div class="form-group">
 								<label for="inputPassword3" class="col-sm-2 control-label">Pacote:</label>
 								<div class="col-sm-6">
@@ -477,15 +493,15 @@
 								</div>
 							</div>
 						</div>
+					</div>
 						<div class="form-group">
-							<div class="col-sm-offset-5 col-sm-10">
+							<div class="col-sm-5" style="margin-left: 43%;">
 								<a type="button" class="btn btn-default" href="<?php echo site_url("welcome"); ?>">Voltar</a>
-								<button type="submit" class="btn btn-primary">
+								<a type="submit" class="btn btn-primary">
 									Criar
-								</button>
+								</a>
 							</div>
 						</div>
-					</div>
 				</form>
 			</div>
 		</div>
