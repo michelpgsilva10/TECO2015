@@ -21,6 +21,25 @@
 		<link href="<?php echo $this->config->item('base_url') ?>/css-sistema/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 		<link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
 		<link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+		
+		<!-- jQuery -->
+		<script src="<?php echo $this->config->item('base_url') ?>/css-sistema/js/jquery.js"></script>
+
+		<!-- Bootstrap Core JavaScript -->
+		<script src="<?php echo $this->config->item('base_url') ?>/css-sistema/js/bootstrap.min.js"></script>
+
+		<!-- Plugin JavaScript -->
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+		<!--<script src="<?php echo $this->config->item('base_url') ?>/css-sistema/js/classie.js"></script> -->
+		<script src="<?php echo $this->config->item('base_url') ?>/css-sistema/js/cbpAnimatedHeader.js"></script>
+
+		<!-- Contact Form JavaScript 
+		<script src="<?php echo $this->config->item('base_url') ?>/css-sistema/js/jqBootstrapValidation.js"></script>
+		<script src="<?php echo $this->config->item('base_url') ?>/css-sistema/js/contact_me.js"></script>-->
+
+		<!-- Custom Theme JavaScript
+		<scr-ipt src="<?php echo $this->config->item('base_url') ?>/css-sistema/js/freelancer.js"></script> -->
+
 
 		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -86,7 +105,7 @@
 			        }
 			        echo (validation_errors('<div class="alert alert-danger"><button type="button" class="close" data-dismiss="alert">×</button>', '</div>'));
 			     ?>
-				<form class="form-horizontal" role="form" method="post" accept-charset="utf-8" action="<?php echo site_url("cadastro/novo"); ?>">
+				<form class="form-horizontal" enctype="multipart/form-data" action="<?php echo site_url("cadastro/novo"); ?>">
 					<div class="col-md-12" style="margin-left: 40px;">
 						<div class="col-md-6">
 							<!-- Perfil -->
@@ -497,7 +516,7 @@
 						<div class="form-group">
 							<div class="col-sm-5" style="margin-left: 43%;">
 								<a type="button" class="btn btn-default" href="<?php echo site_url("welcome"); ?>">Voltar</a>
-								<input type="submit" value="Criar" class="btn btn-primary">									
+								<input type="submit" value="Criar" class="btn btn-primary">
 							</div>
 						</div>
 				</form>
@@ -539,24 +558,7 @@
 		<div class="scroll-top page-scroll visible-xs visible-sm">
 			<a class="btn btn-primary" href="#page-top"> <i class="fa fa-chevron-up"></i> </a>
 		</div>
-		<!-- jQuery -->
-		<script src="<?php echo $this->config->item('base_url') ?>/css-sistema/js/jquery.js"></script>
-
-		<!-- Bootstrap Core JavaScript -->
-		<script src="<?php echo $this->config->item('base_url') ?>/css-sistema/js/bootstrap.min.js"></script>
-
-		<!-- Plugin JavaScript -->
-		<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-		<script src="<?php echo $this->config->item('base_url') ?>/css-sistema/js/classie.js"></script>
-		<script src="<?php echo $this->config->item('base_url') ?>/css-sistema/js/cbpAnimatedHeader.js"></script>
-
-		<!-- Contact Form JavaScript -->
-		<script src="<?php echo $this->config->item('base_url') ?>/css-sistema/js/jqBootstrapValidation.js"></script>
-		<script src="<?php echo $this->config->item('base_url') ?>/css-sistema/js/contact_me.js"></script>
-
-		<!-- Custom Theme JavaScript -->
-		<script src="<?php echo $this->config->item('base_url') ?>/css-sistema/js/freelancer.js"></script>
-
+		
 	</body>
 
 </html>
