@@ -103,7 +103,7 @@
 			        if (isset($mensagem)) {
 			            echo $mensagem;
 			        }
-			        echo (validation_errors('<div class="alert alert-danger"><button type="button" class="close" data-dismiss="alert">×</button>', '</div>'));
+			        echo validation_errors();
 			     ?>
 				<form class="form-horizontal" enctype="multipart/form-data" action="<?php echo site_url("cadastro/novo"); ?>">
 					<div class="col-md-12" style="margin-left: 40px;">

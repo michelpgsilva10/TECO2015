@@ -101,7 +101,6 @@ class Cadastro extends CI_Controller {
         );
 
         if ($this->form_validation->run() == FALSE) {
-
             $dados["email"] = $email;
             $this->load->view('cadastro', $dados);
         } else {
@@ -132,6 +131,5 @@ class Cadastro extends CI_Controller {
             }
         }
     }
-	
 }
 ?>
