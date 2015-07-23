@@ -110,7 +110,7 @@ class Cadastro extends CI_Controller {
                 $mensagem = "<div class='alert alert-danger'><button type='button' class='close' data-dismiss='alert'>×</button>As senha não são iguais !</div>";
                 $dados["mensagem"] = $mensagem;
                 $dados["email"] = $email;
-                $this->view('cadastro', $dados);
+                $this->load->view('cadastro', $dados);
             } else {
                 if (!$this->validaCPF($dados['cpf'])) {
 
