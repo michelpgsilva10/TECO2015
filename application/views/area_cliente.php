@@ -52,21 +52,21 @@
 		</nav>
 
 		<!-- Header -->
-		<header style="background-color: #eb5534;">
+		<header style="background-color: #eb5534;" class="col-xs-12 col-sm-12">
 			<div class="container" >
 				<div class="row">
-					<div class="col-lg-4">
-						<img class="img-responsive" src="<?php echo $this->config->item('base_url') ?>/css-sistema/img/portfolio/AAEUFMT.png" alt="">
+					<div class="col-xs-12 col-sm-4">
+						<img class="img-responsive" style="height: 150px; margin-top: 20px;" src="<?php echo $this->config->item('base_url') ?>/css-sistema/img/portfolio/AAEUFMT.png" alt="">
 					</div>
-					<div class="col-lg-4">
-						<div class="intro-text">
+					<div class="col-xs-12 col-sm-4">
+						<div class="intro-text" style="font-size: 9px;">
 							<span class="name">Teco15</span>
 							<hr class="star-primary">
 							<span class="skills">Torneio das Engenharias do Centro-Oeste</span>
 						</div>
 					</div>
-					<div class="col-lg-4">
-						<img class="img-responsive" src="<?php echo $this->config->item('base_url') ?>/css-sistema/img/portfolio/Toruna.png" alt="">
+					<div class="col-xs-12 col-sm-4">
+						<img class="img-responsive" style="height: 150px; margin-top: 20px;" src="<?php echo $this->config->item('base_url') ?>/css-sistema/img/portfolio/Toruna.png" alt="">
 					</div>
 				</div>
 			</div>

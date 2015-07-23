@@ -71,21 +71,21 @@
 		</nav>
 
 		<!-- Header -->
-		<header style="background-color: #eb5534;">
+		<header style="background-color: #eb5534;" class="col-xs-12 col-sm-12">
 			<div class="container" >
 				<div class="row">
-					<div class="col-lg-4">
-						<img class="img-responsive" src="<?php echo $this->config->item('base_url') ?>/css-sistema/img/portfolio/AAEUFMT.png" alt="">
+					<div class="col-xs-12 col-sm-4">
+						<img class="img-responsive" style="height: 150px; margin-top: 20px;" src="<?php echo $this->config->item('base_url') ?>/css-sistema/img/portfolio/AAEUFMT.png" alt="">
 					</div>
-					<div class="col-lg-4">
-						<div class="intro-text">
+					<div class="col-xs-12 col-sm-4">
+						<div class="intro-text" style="font-size: 9px;">
 							<span class="name">Teco15</span>
 							<hr class="star-primary">
 							<span class="skills">Torneio das Engenharias do Centro-Oeste</span>
 						</div>
 					</div>
-					<div class="col-lg-4">
-						<img class="img-responsive" src="<?php echo $this->config->item('base_url') ?>/css-sistema/img/portfolio/Toruna.png" alt="">
+					<div class="col-xs-12 col-sm-4">
+						<img class="img-responsive" style="height: 150px; margin-top: 20px;" src="<?php echo $this->config->item('base_url') ?>/css-sistema/img/portfolio/Toruna.png" alt="">
 					</div>
 				</div>
 			</div>
@@ -441,9 +441,9 @@
 						</div>
 						<br />
 						<!-- Pagamento -->
-						<div class="col-md-12" style="margin-left: 100px;">
+						<div class="col-md-12" >
 							<div class="form-group">
-								<label for="inputPassword3" class="col-sm-2 control-label">Apelido:</label>
+								<label for="inputPassword3" class="col-sm-3 control-label">Apelido:</label>
 								<div class="col-sm-6">
 									<input type="text" class="form-control" name="apelido" <?php
 									if (isset($apelido)) {
@@ -453,7 +453,7 @@
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="inputPassword3" class="col-sm-2 control-label">Pacote:</label>
+								<label for="inputPassword3" class="col-sm-3 control-label">Pacote:</label>
 								<div class="col-sm-6">
 									<select class="form-control" name="pacote">
 										<option value = "1" <?php
@@ -475,7 +475,7 @@
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="inputPassword3" class="col-sm-2 control-label">Forma Pagamento</label>
+								<label for="inputPassword3" class="col-sm-3 control-label">Forma Pagamento</label>
 								<div class="col-sm-6">
 									<select class="form-control" name="forma_pagamento">
 										<option value = "1" <?php
@@ -502,7 +502,7 @@
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="inputPassword3" class="col-sm-2 control-label">Numero de Parcelas:</label>
+								<label for="inputPassword3" class="col-sm-3 control-label">Numero de Parcelas:</label>
 								<div class="col-sm-6">
 									<input type="text" class="form-control" name="num_parcelas" <?php
 									if (isset($num_parcelas)) {
