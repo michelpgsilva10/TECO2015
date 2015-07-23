@@ -75,52 +75,14 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12 text-center">
-					<h2>Login</h2>
+					<h2><?php echo $nome_cliente; ?></h2>
 					<hr class="star-primary">
 				</div>
 			</div>
-			<?php
-			  if (isset($mensagem)) {
-			    echo $mensagem;
-			  }
-			  echo (validation_errors('<div class="alert alert-danger"><button type="button" class="close" data-dismiss="alert">×</button>', '</div>'));
-			?>
 			<div class="row">
-				<form class="form-horizontal" role="form" method="post" accept-charset="utf-8" action="<?php echo site_url("login/logar"); ?>">
-					<div class="col-md-12">
-						<div class="col-md-12">
-							<!-- Perfil -->
-							<div class="form-group" >
-								<label for="inputEmail3" class="col-sm-3 control-label">Email:</label>
-								<div class="col-sm-6">
-									<input type="text" class="form-control" name="email" <?php
-									if (isset($nome_cliente)) {
-										echo("value='" . $nome_cliente . "'");
-									}
-									?>>
-								</div>
-							</div>
-							<div class="form-group" >
-								<label for="inputPassword3" class="col-sm-3 control-label">Senha:</label>
-								<div class="col-sm-6">
-									<input type="password" class="form-control" name="senha" <?php
-									if (isset($senha)) {
-										echo("value='" . $senha . "'");
-									}
-									?>>
-								</div>
-							</div>
-						</div>
-						<div class="form-group" style="margin-left: 5px;">
-							<div class="col-sm-offset-5 col-sm-10">
-								<a type="button" class="btn btn-default" href="<?php echo site_url("welcome"); ?>">Voltar</a>
-								<button type="submit" class="btn btn-primary">
-									Login
-								</button>
-							</div>
-						</div>
-					</div>
-				</form>
+				<?php if($cancelado==1){
+					echo "<p class=\"text-center\" style=\"color: #EE4B4B\"> <strong> Cadastro Cancelado </strong></p>";
+				}?>
 			</div>
 		</div>
 		<!-- Footer -->
@@ -167,15 +129,6 @@
 
 		<!-- Plugin JavaScript -->
 		<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-		<script src="<?php echo $this->config->item('base_url') ?>/css-sistema/js/classie.js"></script>
-		<script src="<?php echo $this->config->item('base_url') ?>/css-sistema/js/cbpAnimatedHeader.js"></script>
-
-		<!-- Contact Form JavaScript -->
-		<script src="<?php echo $this->config->item('base_url') ?>/css-sistema/js/jqBootstrapValidation.js"></script>
-		<script src="<?php echo $this->config->item('base_url') ?>/css-sistema/js/contact_me.js"></script>
-
-		<!-- Custom Theme JavaScript -->
-		<script src="<?php echo $this->config->item('base_url') ?>/css-sistema/js/freelancer.js"></script>
 
 	</body>
 

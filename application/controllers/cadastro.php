@@ -103,20 +103,20 @@ class Cadastro extends CI_Controller {
         if ($this->form_validation->run() == FALSE) {
 
             $dados["email"] = $email;
-            $this->view('cadastro', $dados);
+            $this->load->view('cadastro', $dados);
         } else {
 
             if ($senha != $senha_confirma) {
                 $mensagem = "<div class='alert alert-danger'><button type='button' class='close' data-dismiss='alert'>×</button>As senha não são iguais !</div>";
                 $dados["mensagem"] = $mensagem;
                 $dados["email"] = $email;
-                $this->view('cadastro', $dados);
+                $this->load->view('cadastro', $dados);
             } else {
                 if (!$this->validaCPF($dados['cpf'])) {
 
                     $dados["email"] = $email;
                     $dados["mensagem"] = "<div class='alert alert-danger'><button type='button' class='close' data-dismiss='alert'>×</button>CPF invalido !</div>";
-                    $this->view('cadastro', $dados);
+                    $this->load->view('cadastro', $dados);
                 } else {
                 	$data['senha'] = $senha;
                     if ($this->user_model->novoUserCliente($email, $senha, $dados)) {
@@ -126,7 +126,7 @@ class Cadastro extends CI_Controller {
 
                         $dados["email"] = $email;
                         $dados["mensagem"] = "<div class='alert alert-danger'><button type='button' class='close' data-dismiss='alert'>×</button>Ocorreu um erro ao incluir os dados de cadastro !</div>";
-                        $this->view('cadastro', $dados);
+                        $this->load->view('cadastro', $dados);
                     }
                 }
             }

@@ -497,9 +497,7 @@
 						<div class="form-group">
 							<div class="col-sm-5" style="margin-left: 43%;">
 								<a type="button" class="btn btn-default" href="<?php echo site_url("welcome"); ?>">Voltar</a>
-								<a type="submit" class="btn btn-primary">
-									Criar
-								</a>
+								<input type="submit" value="Criar" class="btn btn-primary">									
 							</div>
 						</div>
 				</form>
