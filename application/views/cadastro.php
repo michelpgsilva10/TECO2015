@@ -27,7 +27,9 @@
 
 		<!-- Bootstrap Core JavaScript -->
 		<script src="<?php echo $this->config->item('base_url') ?>/css-sistema/js/bootstrap.min.js"></script>
-
+		<!-- Jquery MAsk -->
+		<script src="<?php echo $this->config->item('base_url') ?>/css-sistema/js/jquery.maskedinput.js" type="text/javascript"></script>
+		
 		<!-- Plugin JavaScript -->
 		<!--<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script> -->
 		<!--<script src="<?php echo $this->config->item('base_url') ?>/css-sistema/js/classie.js"></script> -->
@@ -47,9 +49,18 @@
 		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 		<![endif]-->
-
+	<script>
+		
+		$(document).ready(function(){
+		   $("#dta_nasc").mask("99/99/9999",{placeholder:"dd/mm/yyyy"});
+		   $("#Telefone1").mask("(99)9999-9999?+9");
+		   $("#Telefone2").mask("(99)9999-9999?+9");
+		   $("#CEP").mask("99999-999");
+	       $("#Cpf").mask("999.999.999-99");
+		});
+		
+	</script>
 	</head>
-
 	<body id="page-top" class="index">
 
 		<!-- Navigation -->
@@ -123,7 +134,7 @@
 							<div class="form-group" >
 								<label for="inputPassword3" class="col-sm-3 control-label">CPF:</label>
 								<div class="col-sm-6">
-									<input type="text" class="form-control" name="cpf" <?php
+									<input type="text" id="Cpf" class="form-control" name="cpf" <?php
 									if (isset($CPF)) {
 										echo("value='" . $CPF . "'");
 									}
@@ -163,7 +174,7 @@
 							<div class="form-group">
 								<label for="inputPassword3" class="col-sm-3 control-label">Data de Nascimento:</label>
 								<div class="col-sm-6">
-									<input type="text" class="form-control" name="dta_nasc" <?php
+									<input type="text" class="form-control" id="dta_nasc" name="dta_nasc" <?php
 									if (isset($data_nascimento)) {
 										echo("value='" . $data_nascimento . "'");
 									}
@@ -193,7 +204,7 @@
 							<div class="form-group">
 								<label for="inputPassword3" class="col-sm-3 control-label">Telefone Celular:</label>
 								<div class="col-sm-6">
-									<input type="text" class="form-control" name="telefone_alt" <?php
+									<input type="text" id="Telefone1" class="form-control" placeholder="+9 = 9ª Digito" name="telefone_alt" <?php
 									if (isset($tel_celular)) {
 										echo("value='" . $tel_celular . "'");
 									}
@@ -203,7 +214,7 @@
 							<div class="form-group" >
 								<label for="inputPassword3" class="col-sm-3 control-label">Telefone Residencial:</label>
 								<div class="col-sm-6">
-									<input type="text" class="form-control" name="telefone" <?php
+									<input type="text" id="Telefone2" class="form-control" placeholder="+9 = 9ª Digito" name="telefone" <?php
 									if (isset($tel_residencial)) {
 										echo("value='" . $tel_residencial . "'");
 									}
@@ -410,7 +421,7 @@
 							<div class="form-group">
 								<label for="inputPassword3" class="col-sm-3 control-label">CEP:</label>
 								<div class="col-sm-6">
-									<input type="text" class="form-control" name="cep" <?php
+									<input type="text" class="form-control" id="CEP" name="cep" <?php
 									if (isset($endereco_cep)) {
 										echo("value='" . $endereco_cep . "'");
 									}
