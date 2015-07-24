@@ -71,7 +71,7 @@ $config['url_suffix'] = '';
 | than english.
 |
 */
-$config['language']	= 'english';
+$config['language']	= 'portuguese-br';
 
 /*
 |--------------------------------------------------------------------------
@@ -271,8 +271,6 @@ $config['log_date_format'] = 'Y-m-d H:i:s';
 |
 */
 $config['error_views_path'] = '';
-$config['error_prefix'] = '<div class="alert alert-danger"><button type="button" class="close" data-dismiss="alert">×</button>';
-$config['error_suffix'] = '</div>';
 
 /*
 |--------------------------------------------------------------------------

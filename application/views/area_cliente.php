@@ -9,7 +9,7 @@
 		<meta name="description" content="">
 		<meta name="author" content="">
 
-		<title>Freelancer - Start Bootstrap Theme</title>
+		<title>Teco2015</title>
 
 		<!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
 		<link href="<?php echo $this->config->item('base_url') ?>/css-sistema/css/bootstrap.min.css" rel="stylesheet">
@@ -72,6 +72,13 @@
 			</div>
 		</header>
 		<!-- About Section -->
+		<br />
+		<?php
+	        if (isset($mensagem)) {
+	            echo $mensagem;
+	        }
+	        echo validation_errors('<div class="alert alert-danger"><button type="button" class="close" data-dismiss="alert">×</button>','</div>');
+	     ?>
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12 text-center">
@@ -80,10 +87,59 @@
 				</div>
 			</div>
 			<div class="row">
-				<?php if($cancelado==1){
-					echo "<p class=\"text-center\" style=\"color: #EE4B4B\"> <strong> Cadastro Cancelado </strong></p>";
-				}?>
+				<?php
+				if ($pacote == "1") {?>
+					<p class="text-center"><span class="glyphicon glyphicon-gift" aria-hidden="true"></span>     <strong> PACOTE CACIQUE </strong></p>
+                    <p class="text-center">      KIT (CAMISETA + CANECA + TIRANTE + MOCHILA)</p>
+                    <p class="text-center">     BONÉ+CHINELO</p>
+                    <p class="text-center">     TRANSPORTE + ALOJAMENTO</p>
+                    <p class="text-center">     ARENA + FESTAS + JOGOS</p>
+				<?php
+				}else if ($pacote == "2") {
+			?>
+					<p class="text-center"><span class="glyphicon glyphicon-gift" aria-hidden="true"></span>     <strong> PACOTE ÍNDIO LOKO   </strong></p>
+                    <p class="text-center">     KIT (camiseta + caneca + tirante + mochila)</p>
+                    <p class="text-center">     TRANSPORTE + ALOJAMENTO</p>
+                    <p class="text-center">     ARENAS + FESTAS + JOGOS</p>
+				<?php
+						}else if ($pacote == "3") {
+					?>
+					<p class="text-center"><span class="glyphicon glyphicon-gift" aria-hidden="true"></span>     <strong> PACOTE GUERREIRO </strong></p>
+                    <p class="text-center">     KIT (camiseta + caneca + tirante + mochila)</p>
+                    <p class="text-center">     TRANSPORTE + ALOJAMENTO </p>
+                    <p class="text-center">     ARENAS + JOGOS</p>
+				<?php } ?>
 			</div>
+			<div class="row">
+				<div class="col-lg-12 text-center">
+					<h2><?php echo "Status do Pagamento"; ?></h2>
+					<hr class="star-primary">
+				</div>
+			</div>
+			<div class="row">
+				<?php
+				if ($cancelado == 1) {
+					echo "<p class=\"text-center\" style=\"color: #EE4B4B\"> <strong> Cadastro Cancelado </strong></p>";
+				} else if ($pago == 1) {
+					echo "<p class=\"text-center\" style=\"color: #EE4B4B\"> <strong> Foi Efetuado o Rescebimento do Pagamento </strong></p>";
+				} else {
+					echo "<p class=\"text-center\" style=\"color: #EE4B4B\"> <strong> Aguardando Pagamento </strong></p>";
+				}
+			?>
+			</div>
+			<br />
+			<div class="row">
+				<div <?php if ($pago != 1 && $cancelado == 0) {?> class="col-md-offset-4" <?php }else{?> class="col-md-offset-5" <?php }?>>
+					<div <?php if ($pago != 1 && $cancelado == 0) {?> style="margin-left: 75px;" <?php }else{?> style="margin-left: 61px;" <?php }?>>
+						<a type="button" class="btn btn-default" href="<?php echo site_url("welcome"); ?>">Voltar</a>
+						<?php
+						if ($pago != 1 && $cancelado == 0) {?>
+							<a type="button" class="btn btn-primary" href="<?php echo site_url("cadastro/cancelamento/".$id); ?>">Cancelar Cadastro</a>
+				    	<?php }?>
+				    </div> 
+				</div>
+			</div>
+			<br />
 		</div>
 		<!-- Footer -->
 		<footer class="text-center">

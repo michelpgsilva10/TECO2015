@@ -59,7 +59,7 @@ class Cadastro extends CI_Controller {
 		$this->form_validation->set_rules('pacote', 'Pacote', 'trim|required|xss_clean');
         $this->form_validation->set_rules('forma_pagamento', 'Forma de Pagamento', 'trim|required|xss_clean');
         $this->form_validation->set_rules('num_parcelas', 'Numero de Parcelas', 'trim|required|xss_clean');
-        $this->form_validation->set_rules('Apelido', 'Apelido', 'trim|required|xss_clean');
+        $this->form_validation->set_rules('apelido', 'Apelido', 'trim|required|xss_clean');
         
 
         $this->form_validation->set_rules('cidade', 'Cidade', 'trim|required|xss_clean');
@@ -77,7 +77,7 @@ class Cadastro extends CI_Controller {
 
         $dados = array(
             'nome' => $this->input->post('nome', TRUE),
-            'email_cliente' => $email,
+            'email' => $email,
             'CPF' => $this->input->post('cpf', TRUE),
             'RG' => $this->input->post('rg', TRUE),
             'orgao_expeditor' => $this->input->post('orgao_expeditor', TRUE),
@@ -98,6 +98,7 @@ class Cadastro extends CI_Controller {
             'forma_pagamento' => $this->input->post('forma_pagamento', TRUE),
         	'num_parcelas' => $this->input->post('num_parcelas', TRUE),
         	'apelido' => $this->input->post('apelido', TRUE),
+        	'senha' => $senha
         );
 
         if ($this->form_validation->run() == FALSE) {
@@ -111,25 +112,63 @@ class Cadastro extends CI_Controller {
                 $dados["email"] = $email;
                 $this->load->view('cadastro', $dados);
             } else {
-                if (!$this->validaCPF($dados['cpf'])) {
+                if (!$this->validaCPF($dados['CPF'])) {
 
                     $dados["email"] = $email;
                     $dados["mensagem"] = "<div class='alert alert-danger'><button type='button' class='close' data-dismiss='alert'>×</button>CPF invalido !</div>";
                     $this->load->view('cadastro', $dados);
                 } else {
-                	$data['senha'] = $senha;
-                    if ($this->user_model->novoUserCliente($email, $senha, $dados)) {
-
-                        redirect('area_user');
+                	
+                    if ($this->user_model->novoUserCliente($email, $dados)) {
+                       $dados3 = $this->user_model->buscarClienteCpf($dados['CPF']);
+					   $dados2 = array('nome_cliente' => $dados3['nome'], 'pago' => $dados3['confirmacao_pgto'] , 'cancelado' => $dados3['cancelamento'], 'pacote' => $dados3['pacote'],'id' => $dados3['id_contratante'] );
+					   $this -> load -> view('area_cliente', $dados2);
                     } else {
-
-                        $dados["email"] = $email;
-                        $dados["mensagem"] = "<div class='alert alert-danger'><button type='button' class='close' data-dismiss='alert'>×</button>Ocorreu um erro ao incluir os dados de cadastro !</div>";
-                        $this->load->view('cadastro', $dados);
+                    	$dados4 = $this->user_model->buscarClienteCpf($dados['CPF']);
+						if($dados4){
+							if($this->user_model->atualizaCadastro($dados4['id_contratante'],$dados)){//Função que atualiza e Coloca 0 Para o Cancelamento
+								$dados5 = $this->user_model->buscarClienteCpf($dados['CPF']);
+								$dados6 = array('nome_cliente' => $dados5['nome'], 'pago' => $dados5['confirmacao_pgto'] , 'cancelado' => $dados5['cancelamento'], 'pacote' => $dados5['pacote'],'id' => $dados5['id_contratante'] );
+					   			$this -> load -> view('area_cliente', $dados6);		
+							}else{
+                        		$dados["email"] = $email;
+                        		$dados["mensagem"] = "<div class='alert alert-danger'><button type='button' class='close' data-dismiss='alert'>×</button>Ocorreu um erro ao incluir os dados de cadastro !</div>";
+                        		$this->load->view('cadastro', $dados);
+							}
+						}else{
+                        	$dados["email"] = $email;
+                        	$dados["mensagem"] = "<div class='alert alert-danger'><button type='button' class='close' data-dismiss='alert'>×</button>Ocorreu um erro ao incluir os dados de cadastro !</div>";
+                        	$this->load->view('cadastro', $dados);
+                        }
                     }
                 }
             }
         }
     }
+    public function cancelamento($id)
+	{
+		if ($this->user_model->cancelamentoId($id)) {
+           $dados3 = $this->user_model->buscarUserIdCliente($id);
+		   $dados2 = array(
+		   					'nome_cliente' => $dados3['nome'], 
+		   					'pago' => $dados3['confirmacao_pgto'] , 
+		   					'cancelado' => $dados3['cancelamento'], 
+		   					'pacote' => $dados3['pacote'],
+		   					'id' => $dados3['id_contratante'] 
+						   );
+		   $this -> load -> view('area_cliente', $dados2);
+        } else {
+		   $dados3 = $this->user_model->buscarUserIdCliente($id);
+		   $dados2 = array(
+		   					'nome_cliente' => $dados3['nome'], 
+		   					'pago' => $dados3['confirmacao_pgto'] , 
+		   					'cancelado' => $dados3['cancelamento'], 
+		   					'pacote' => $dados3['pacote'], 
+		   					'id' => $dados3['id_contratante'], 
+		   					'mensagem' => '<div class=\'alert alert-danger\'><button type=\'button\' class=\'close\' data-dismiss=\'alert\'>×</button>Ocorreu um erro ao Cancelar o cadastro !</div>'
+		     			   );
+		   $this -> load -> view('area_cliente', $dados2);
+		}
+	}
 }
 ?>

@@ -9,7 +9,7 @@
 		<meta name="description" content="">
 		<meta name="author" content="">
 
-		<title>Freelancer - Start Bootstrap Theme</title>
+		<title>Teco2015</title>
 
 		<!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
 		<link href="<?php echo $this->config->item('base_url') ?>/css-sistema/css/bootstrap.min.css" rel="stylesheet">
@@ -169,14 +169,7 @@
 		<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
 		<script src="<?php echo $this->config->item('base_url') ?>/css-sistema/js/classie.js"></script>
 		<script src="<?php echo $this->config->item('base_url') ?>/css-sistema/js/cbpAnimatedHeader.js"></script>
-
-		<!-- Contact Form JavaScript -->
-		<script src="<?php echo $this->config->item('base_url') ?>/css-sistema/js/jqBootstrapValidation.js"></script>
-		<script src="<?php echo $this->config->item('base_url') ?>/css-sistema/js/contact_me.js"></script>
-
-		<!-- Custom Theme JavaScript -->
-		<script src="<?php echo $this->config->item('base_url') ?>/css-sistema/js/freelancer.js"></script>
-
+	
 	</body>
 
 </html>

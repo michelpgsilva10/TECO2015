@@ -29,9 +29,9 @@
 		<script src="<?php echo $this->config->item('base_url') ?>/css-sistema/js/bootstrap.min.js"></script>
 
 		<!-- Plugin JavaScript -->
-		<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+		<!--<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script> -->
 		<!--<script src="<?php echo $this->config->item('base_url') ?>/css-sistema/js/classie.js"></script> -->
-		<script src="<?php echo $this->config->item('base_url') ?>/css-sistema/js/cbpAnimatedHeader.js"></script>
+		<!--<script src="<?php echo $this->config->item('base_url') ?>/css-sistema/js/cbpAnimatedHeader.js"></script>-->
 
 		<!-- Contact Form JavaScript 
 		<script src="<?php echo $this->config->item('base_url') ?>/css-sistema/js/jqBootstrapValidation.js"></script>
@@ -103,20 +103,21 @@
 			        if (isset($mensagem)) {
 			            echo $mensagem;
 			        }
-			        echo validation_errors();
+			        echo validation_errors('<div class="alert alert-danger"><button type="button" class="close" data-dismiss="alert">×</button>','</div>');
 			     ?>
-				<form class="form-horizontal" enctype="multipart/form-data" action="<?php echo site_url("cadastro/novo"); ?>">
+				<form class="form-horizontal" method="post" enctype="multipart/form-data" action="<?php echo site_url("cadastro/novo"); ?>">
 					<div class="col-md-12" style="margin-left: 40px;">
 						<div class="col-md-6">
 							<!-- Perfil -->
 							<div class="form-group" >
 								<label for="inputEmail3" class="col-sm-3 control-label">Nome:</label>
 								<div class="col-sm-6">
-									<input type="text" class="form-control" name="nome" <?php
-									if (isset($nome_cliente)) {
-										echo("value='" . $nome_cliente . "'");
+									<input type="text" class="form-control"  name="nome" <?php
+									if (isset($nome)) {
+										echo("value='" . $nome . "'");
 									}
-									?>>
+									?> 
+									required >
 								</div>
 							</div>
 							<div class="form-group" >
@@ -126,7 +127,7 @@
 									if (isset($CPF)) {
 										echo("value='" . $CPF . "'");
 									}
-									?>>
+									?> required >
 								</div>
 							</div>
 							<div class="form-group" >
@@ -136,7 +137,7 @@
 									if (isset($RG)) {
 										echo("value='" . $RG . "'");
 									}
-									?>>
+									?> required >
 								</div>
 							</div>
 							<div class="form-group">
@@ -146,7 +147,7 @@
 									if (isset($orgao_expeditor)) {
 										echo("value='" . $orgao_expeditor . "'");
 									}
-									?>>
+									?> required >
 								</div>
 							</div>
 							<div class="form-group">
@@ -156,7 +157,7 @@
 									if (isset($rga)) {
 										echo("value='" . $rga . "'");
 									}
-									?>>
+									?> required >
 								</div>
 							</div>
 							<div class="form-group">
@@ -166,7 +167,7 @@
 									if (isset($data_nascimento)) {
 										echo("value='" . $data_nascimento . "'");
 									}
-									?>>
+									?> required >
 								</div>
 							</div>
 							<div class="form-group" >
@@ -176,7 +177,7 @@
 									if (isset($curso)) {
 										echo("value='" . $curso . "'");
 									}
-									?>>
+									?> required >
 								</div>
 							</div>
 							<div class="form-group" >
@@ -186,7 +187,7 @@
 									if (isset($semestre)) {
 										echo("value='" . $semestre . "'");
 									}
-									?>>
+									?> required >
 								</div>
 							</div>							
 							<div class="form-group">
@@ -196,7 +197,7 @@
 									if (isset($tel_celular)) {
 										echo("value='" . $tel_celular . "'");
 									}
-									?>>
+									?> required >
 								</div>
 							</div>
 							<div class="form-group" >
@@ -220,13 +221,13 @@
 									if (isset($endereco_cidade)) {
 										echo("value='" . $endereco_cidade . "'");
 									}
-									?>>
+									?> required >
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="inputPassword3" class="col-sm-3 control-label">Estado</label>
 								<div class="col-sm-6">
-									<select class="form-control" name="estado" >
+									<select class="form-control" name="estado" required >
 										<option value="AC" <?php
 										if (isset($endereco_uf) and $endereco_uf == "AC") {
 											echo("selected");
@@ -373,7 +374,7 @@
 									if (isset($endereco_rua)) {
 										echo("value='" . $endereco_rua . "'");
 									}
-									?>>
+									?> required >
 								</div>
 							</div>
 							<div class="form-group">
@@ -393,7 +394,7 @@
 									if (isset($endereco_numero)) {
 										echo("value='" . $endereco_numero . "'");
 									}
-									?>>
+									?> required >
 								</div>
 							</div>
 							<div class="form-group">
@@ -403,7 +404,7 @@
 									if (isset($endereco_bairro)) {
 										echo("value='" . $endereco_bairro . "'");
 									}
-									?>>
+									?> required >
 								</div>
 							</div>
 							<div class="form-group">
@@ -413,7 +414,7 @@
 									if (isset($endereco_cep)) {
 										echo("value='" . $endereco_cep . "'");
 									}
-									?>>
+									?> required >
 								</div>
 							</div>
 							<div class="form-group" >
@@ -423,19 +424,19 @@
 									if (isset($email)) {
 										echo("value='" . $email . "'");
 									}
-									?>>
+									?> required >
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="inputPassword3" class="col-sm-3 control-label">Senha:</label>
 								<div class="col-sm-6">
-									<input type="password" class="form-control" name="senha">
+									<input type="password" class="form-control" name="senha" required >
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="inputPassword3" class="col-sm-3 control-label">Confirmação da Senha:</label>
 								<div class="col-sm-6">
-									<input type="password" class="form-control" name="senha_confirma">
+									<input type="password" class="form-control" name="senha_confirma" required >
 								</div>
 							</div>
 						</div>
@@ -455,7 +456,7 @@
 							<div class="form-group">
 								<label for="inputPassword3" class="col-sm-3 control-label">Pacote:</label>
 								<div class="col-sm-6">
-									<select class="form-control" name="pacote">
+									<select class="form-control" name="pacote" required >
 										<option value = "1" <?php
 										if (isset($pacote) and $pacote == "1") {
 											echo("selected");
@@ -477,7 +478,7 @@
 							<div class="form-group">
 								<label for="inputPassword3" class="col-sm-3 control-label">Forma Pagamento</label>
 								<div class="col-sm-6">
-									<select class="form-control" name="forma_pagamento">
+									<select class="form-control" name="forma_pagamento" required >
 										<option value = "1" <?php
 										if (isset($forma_pagamento) and $forma_pagamento == "1") {
 											echo("selected");
@@ -508,7 +509,7 @@
 									if (isset($num_parcelas)) {
 										echo("value='" . $num_parcelas . "'");
 									}
-									?>>
+									?> required >
 								</div>
 							</div>
 						</div>
