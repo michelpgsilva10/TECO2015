@@ -44,7 +44,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#page-top">AAEUFMT</a>
+                <a class="navbar-brand" href="#page-top">AAAEUFMT</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
