@@ -44,7 +44,7 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="<?php echo site_url("welcome"); ?>">AAEUFMT</a>
+					<a class="navbar-brand" href="<?php echo site_url("welcome"); ?>">AAAEUFMT</a>
 				</div>
 				<!-- /.navbar-collapse -->
 			</div>
