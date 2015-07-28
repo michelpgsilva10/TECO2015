@@ -121,7 +121,7 @@
 				if ($cancelado == 1) {
 					echo "<p class=\"text-center\" style=\"color: #EE4B4B\"> <strong> Cadastro Cancelado </strong></p>";
 				} else if ($pago == 1) {
-					echo "<p class=\"text-center\" style=\"color: #EE4B4B\"> <strong> Foi Efetuado o Rescebimento do Pagamento </strong></p>";
+					echo "<p class=\"text-center\" style=\"color: #EE4B4B\"> <strong> Foi Efetuado o Recebimento do Pagamento </strong></p>";
 				} else {
 					echo "<p class=\"text-center\" style=\"color: #EE4B4B\"> <strong> Aguardando Pagamento </strong></p>";
 				}
