@@ -162,5 +162,3 @@
      $dompdf->render();
      $dompdf->stream("Contrato TECO.pdf");
 ?>
-
-<s
